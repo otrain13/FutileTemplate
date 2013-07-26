@@ -1,0 +1,11 @@
+#! /bin/bash
+#  Run all atlas generation scripts
+
+scriptpath=.
+
+if [ $1 != "" ]; then
+	scriptpath=$1	
+fi
+
+$scriptpath/MakeGameAtlas $scriptpath
+$scriptpath/MakeUIFonts $scriptpath

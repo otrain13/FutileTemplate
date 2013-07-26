@@ -1,0 +1,17 @@
+#! /bin/bash
+#  Generate the game texture atlas and copy the relevant PNGs
+
+path=.
+
+if [ $1 != "" ]; then
+	path=$1
+fi
+
+TexturePacker $path/GameAtlas.tps
+
+cp $path/GameAtlas_Scale1.png $path/GameAtlas_Scale1_png.bytes
+cp $path/GameAtlas_Scale2.png $path/GameAtlas_Scale2_png.bytes
+cp $path/GameAtlas_Scale4.png $path/GameAtlas_Scale4_png.bytes
+mv $path/GameAtlas_Scale1_png.bytes $path/../Unity/Assets/Resources/Atlases/GameAtlas_Scale1_png.bytes
+mv $path/GameAtlas_Scale2_png.bytes $path/../Unity/Assets/Resources/Atlases/GameAtlas_Scale2_png.bytes
+mv $path/GameAtlas_Scale4_png.bytes $path/../Unity/Assets/Resources/Atlases/GameAtlas_Scale4_png.bytes

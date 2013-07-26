@@ -1,0 +1,19 @@
+#! /bin/bash
+#  export all the UI font atlases and copy the pngs into the right places
+
+path=.
+
+if [ $1 != "" ]; then
+	path=$1
+fi
+
+TexturePacker $path/UIFonts_Scale1.tps
+TexturePacker $path/UIFonts_Scale2.tps
+TexturePacker $path/UIFonts_Scale4.tps
+
+cp $path/UIFonts_Scale1.png $path/UIFonts_Scale1_png.bytes
+cp $path/UIFonts_Scale2.png $path/UIFonts_Scale2_png.bytes
+cp $path/UIFonts_Scale4.png $path/UIFonts_Scale4_png.bytes
+mv $path/UIFonts_Scale1_png.bytes $path/../Unity/Assets/Resources/Atlases/UIFonts_Scale1_png.bytes
+mv $path/UIFonts_Scale2_png.bytes $path/../Unity/Assets/Resources/Atlases/UIFonts_Scale2_png.bytes
+mv $path/UIFonts_Scale4_png.bytes $path/../Unity/Assets/Resources/Atlases/UIFonts_Scale4_png.bytes

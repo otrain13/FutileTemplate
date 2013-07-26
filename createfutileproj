@@ -1,0 +1,117 @@
+#!/bin/bash
+# Creates a new futile project based on these templates.
+
+clone=
+futile_path=
+proj_path=
+
+function cloneFutile
+{
+	echo "Cloning Futile from github to $futile_path"
+	git clone git@github.com:MattRix/Futile.git $futile_path
+}
+
+function copyFutile
+{
+	echo "Copying Futile files from $futile_path"
+	if [ -d $futile_path ]; then
+		cp -R $futile_path/FutileProject/Assets/Futile $proj_path/Unity/Assets/Futile
+	else
+		echo "Error: Path provided for futile wasn't valid. Abort."
+		exit 1
+	fi
+}
+
+function copyUnityTemplate
+{
+	echo "Copying project files..."
+	
+	echo "    Copying Unity project..."
+	if [ -d Unity ]; then
+		cp -R Unity $proj_path/Unity
+	else
+		echo "Error: Couldn't find Unity folder. Abort."
+		exit 1
+	fi
+
+	echo "    Copying Texture Atlas files..."
+	if [ -d SourceImages ]; then
+		cp -R SourceImages $proj_path/SourceImages
+		echo "    Building default atlases and fonts..."
+		echo
+		$proj_path/SourceImages/MakeAllAtlases $proj_path/SourceImages
+		echo
+	else
+		echo "Error: Couldn't find SourceImages folder. Abort."
+		exit 1
+	fi
+}
+
+function usage
+{
+	echo "Usage:"
+	echo "createfutileproj [-c futile_path] [-f futile_path] directory_name"
+	echo "    Note: use one of -c OR -f, not both."
+	echo
+	echo "    -c, --clone futile_path"
+	echo "        Clone Futile from github to a location (not the project directory) before copying relevant files to the project."
+	echo
+	echo "    -f, --futile futile_path"
+	echo "        Use a local copy of Futile. This should point to the root Futile folder in the local repo (the one that contains FutileProject)."
+	echo
+	echo "    directory_name"
+	echo "        Where you want to create the new project. NOTE: This does not create a new dir, it puts the files IN the directory specified."
+	echo
+}
+
+# Parse the input params
+if [ $# -gt 0 ]; then
+	# Look for other params
+	while [ "$1" != "" ]; do
+	    case $1 in
+		        -f | --futile )         shift
+				                        futile_path=$1
+										;;
+			 	-c | --clone )    		clone=1
+										shift
+										futile_path=$1
+									    ;;
+			    -h | --help )           usage
+			       						exit
+									    ;;
+			    * )                     proj_path=$1
+			                            ;;
+		esac
+	 	shift
+	done
+fi
+
+# You must have either -c or -f
+if [ "$clone" != "1" -a "$futile_path" == "" ]; then
+	usage
+	exit 1
+fi
+
+if [ -d $proj_path ]; then
+	echo "Project directory is valid"
+	copyUnityTemplate
+	if [ "$clone" = "1" -a "$futile_path" != "" ]; then
+		cloneFutile
+		copyFutile
+	elif [ "$futile_path" != "" ]; then
+		copyFutile
+	fi
+
+	echo
+	echo "*********************************************************"
+	echo " REMEMBER: You must drag the Futile and Main scripts onto the root game object!"
+	echo "*********************************************************"
+	echo
+
+else
+	echo "Error: The directory passed does not exist. You must create the directory before creating the project in it. Abort."
+	exit 1
+fi
+
+exit 0
+
