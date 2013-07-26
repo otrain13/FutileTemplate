@@ -4,14 +4,16 @@ FutileTemplate
 Bash script and template Futile/Unity project to allow for quick Futile project setup.
 
 How to use this:
-1) Clone/download the repo somewhere local.
-2) Create a new, empty project directly outside the template folder.
-3) Open a terminal on your Mac.
-4) Navigate to the repo directory.
-5) Execute the createfutileproj command, as appropriate. See usage:
+
+* Clone/download the repo somewhere local.
+* Create a new, empty project directly outside the template folder.
+* Open a terminal on your Mac.
+* Navigate to the repo directory.
+* Execute the createfutileproj command, as appropriate. See usage:
 
 Usage:
-createfutileproj [-c futile_path] [-f futile_path] directory_name
+
+    createfutileproj [-c futile_path] [-f futile_path] directory_name
     Note: use one of -c OR -f, not both.
 
     -c, --clone futile_path
@@ -25,11 +27,12 @@ createfutileproj [-c futile_path] [-f futile_path] directory_name
 
 Examples:
 
-mkdir ../MyNewGame
-./createfutileproj -f ../Futile ../MyNewGame
+    mkdir ../MyNewGame
+    ./createfutileproj -f ../Futile ../MyNewGame
 
-mkdir ../MyNewGame
-./createfutileproj -c ../Futile ../MyNewGame
+    mkdir ../MyNewGame
+    ./createfutileproj -c ../Futile ../MyNewGame
 
 Notes:
+
 The script requires that the project directory is already created in case you need to set up git/svn/etc on the project directory first.
