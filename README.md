@@ -3,6 +3,10 @@ FutileTemplate
 
 Bash script and template Futile/Unity project to allow for quick Futile project setup.
 
+Note:
+
+The Unity project is from Unity 4.2. If you're running an earlier version of Unity, you'll need to substitute your own empty Unity project.
+
 How to use this:
 
 * Clone/download the repo somewhere local.
