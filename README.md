@@ -3,11 +3,11 @@ FutileTemplate
 
 Bash script and template Futile/Unity project to allow for quick Futile project setup.
 
-Note:
+**Note:**
 
-The Unity project is from Unity 4.2. If you're running an earlier version of Unity, you'll need to substitute your own empty Unity project.
+The enclosed Unity project is from Unity 4.2. If you're running an earlier version of Unity, you'll need to substitute your own empty Unity project.
 
-How to use this:
+**How to use this:**
 
 * Clone/download the repo somewhere local.
 * Create a new, empty project directly outside the template folder.
@@ -15,7 +15,7 @@ How to use this:
 * Navigate to the repo directory.
 * Execute the createfutileproj command, as appropriate. See usage:
 
-Usage:
+**Usage:**
 
     createfutileproj [-c futile_path] [-f futile_path] directory_name
     Note: use one of -c OR -f, not both.
@@ -29,7 +29,7 @@ Usage:
     directory_name
         Where you want to create the new project. NOTE: This does not create a new dir, it puts the files IN the directory specified.
 
-Examples:
+**Examples:**
 
     mkdir ../MyNewGame
     ./createfutileproj -f ../Futile ../MyNewGame
@@ -37,6 +37,6 @@ Examples:
     mkdir ../MyNewGame
     ./createfutileproj -c ../Futile ../MyNewGame
 
-Notes:
+**Notes:**
 
 The script requires that the project directory is already created in case you need to set up git/svn/etc on the project directory first.
