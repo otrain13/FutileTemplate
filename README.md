@@ -3,9 +3,11 @@ FutileTemplate
 
 Bash script and template Futile/Unity project to allow for quick Futile project setup.
 
-**Note:**
+**Requirements:**
 
-The enclosed Unity project is from Unity 4.2. If you're running an earlier version of Unity, you'll need to substitute your own empty Unity project.
+* Mac - This is a bash script built to run on a Mac. I make no claims about it working for anything else.
+* Unity 4.2 - The enclosed Unity project is from Unity 4.2. If you're running an earlier version of Unity, you'll need to substitute your own empty Unity project.
+* TexturePacker with command line support - The scripts run some TexturePacker commands to build some default atlases.
 
 **How to use this:**
 
@@ -40,3 +42,7 @@ The enclosed Unity project is from Unity 4.2. If you're running an earlier versi
 **Notes:**
 
 The script requires that the project directory is already created in case you need to set up git/svn/etc on the project directory first.
+
+**More Stuff:**
+
+This software is released without support or claims that it work for anyone except me. Use it at your own risk. Etc etc etc...
