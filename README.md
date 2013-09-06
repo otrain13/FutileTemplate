@@ -12,9 +12,9 @@ Bash script and template Futile/Unity project to allow for quick Futile project 
 **How to use this:**
 
 * Clone/download the repo somewhere local.
-* Create a new, empty project directly outside the template folder.
+* Create a new, empty project directory outside the template folder.
 * Open a terminal on your Mac.
-* Navigate to the repo directory.
+* Navigate to the FutileTemplate repo directory.
 * Execute the createfutileproj command, as appropriate (See usage below).
 * If everything installed properly, open the project in Unity. Open the MainScene scene file, and drag the Main script and Futile script onto the game object called Futile.
 * Run and you should see a pink background, yellow box, with HELLO WORLD in black text.
