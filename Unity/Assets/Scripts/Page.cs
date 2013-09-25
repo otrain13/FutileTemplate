@@ -1,8 +1,8 @@
 using System;
 
-public class BMHPage : FContainer
+public class AbstractPage : FContainer
 {
-	public BMHPage ()
+	public AbstractPage ()
 	{
 	}
 
