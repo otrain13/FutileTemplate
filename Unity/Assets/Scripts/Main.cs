@@ -15,7 +15,7 @@ public class Main : MonoBehaviour
 	static Main instance = null;
 
 	private PageType _currentPageType = PageType.None;
-	private BMHPage _currentPage = null;
+	private AbstractPage _currentPage = null;
 
 	// Use this for initialization
 	void Start () 
