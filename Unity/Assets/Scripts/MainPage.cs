@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class MainPage : BMHPage
+public class MainPage : AbstractPage
 {
 	public MainPage ()
 	{
