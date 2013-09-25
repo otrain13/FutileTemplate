@@ -66,7 +66,7 @@ public class Main : MonoBehaviour
 	{
 		if(_currentPageType == pageType) return; //we're already on the same page, so don't bother doing anything
 		
-		BMHPage pageToCreate = null;
+		AbstractPage pageToCreate = null;
 		
 		switch (pageType)
 		{
